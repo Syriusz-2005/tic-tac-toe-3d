@@ -4,7 +4,7 @@ import TicTac3DGameManager from './GameManager.js';
 
 export type PlayerSignature = { playerIndex: 0 | 1 }
 
-export default class TicTac3DController extends Emitter<{ ready: { readyState: true }, currentPlayerChange: { newPlayer: PlayerSignature } }> {
+export default class TicTac3DController extends Emitter<{ ready: { readyState: true }, currentPlayerChange: { newPlayer: PlayerSignature }, win: { player: PlayerSignature } }> {
   private readonly gameManager = new TicTac3DGameManager();
   private currentPlayer: PlayerSignature = {playerIndex: 0}; 
 
@@ -26,9 +26,12 @@ export default class TicTac3DController extends Emitter<{ ready: { readyState: t
     const acknowledged = this.gameManager.setItem(coordinate, this.currentPlayer);
     if (acknowledged) {
       this.setNextCurrentPlayer();
+      this.gameManager.logGrid();
     }
-    this.gameManager.logGrid();
-    console.log(acknowledged, this.gameManager.checkForWin());
+    const win = this.gameManager.checkForWin();
+    if (win !== undefined) {
+      this.emit('win', {player: win});
+    }
     return acknowledged;
   }
 }
