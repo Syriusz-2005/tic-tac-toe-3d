@@ -49,12 +49,13 @@ export default class TicTac3dDisplayer {
     for (let y = 0; y < 3; y++) {
       for (let x = 0; x < 3; x++) {
         this.ctx.textAlign = "right";
+        this.ctx.font = 'normal 20px serif';
         this.ctx.fillText(
           `${gridIndex}.${index}`,
           startX +
             x * TicTac3dDisplayer.CELL_SIZE +
             TicTac3dDisplayer.CELL_SIZE,
-          y * TicTac3dDisplayer.CELL_SIZE + TicTac3dDisplayer.CELL_SIZE
+          y * TicTac3dDisplayer.CELL_SIZE + TicTac3dDisplayer.CELL_SIZE - 2
         );
         index++;
       }
@@ -66,6 +67,11 @@ export default class TicTac3dDisplayer {
     this.renderGridOnce(0, 0);
     this.renderGridOnce(TicTac3dDisplayer.CELL_SIZE * 3, 1);
     this.renderGridOnce(TicTac3dDisplayer.CELL_SIZE * 3 * 2, 2);
+    const CELL_SIZE = TicTac3dDisplayer.CELL_SIZE;
+    const width = TicTac3dDisplayer.CANVAS_WIDTH;
+    const height = TicTac3dDisplayer.CANVAS_HEIGHT;
+
+    this.ctx.fillRect(width / 2 - CELL_SIZE / 2, height / 2 - CELL_SIZE / 2, CELL_SIZE, CELL_SIZE);
   }
 
   private render( gridId: number, fieldX: number, fieldY: number, playerIndex: 0 | 1 ) {
@@ -120,7 +126,9 @@ export default class TicTac3dDisplayer {
       this.ctx.textAlign = 'center';
       this.ctx.fillStyle = 'red';
       this.ctx.font = 'bold 20px serif';
-      this.ctx.fillText(`Game won by player ${winnerName ?? this.controller.playerWon.playerIndex}!`, TicTac3dDisplayer.CANVAS_WIDTH/2, TicTac3dDisplayer.CANVAS_HEIGHT / 2 );
+      if (winnerName !== undefined) {
+        this.ctx.fillText(`Game won by player ${winnerName ?? this.controller.playerWon.playerIndex}!`, TicTac3dDisplayer.CANVAS_WIDTH/2, TicTac3dDisplayer.CANVAS_HEIGHT / 2 );
+      }
     }
   }
 
