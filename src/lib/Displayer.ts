@@ -71,13 +71,13 @@ export default class TicTac3dDisplayer {
   private render( gridId: number, fieldX: number, fieldY: number, playerIndex: 0 | 1 ) {
     const CELL_SIZE = TicTac3dDisplayer.CELL_SIZE;
     const startX = gridId * CELL_SIZE * 3;
-    const cellX = startX + (fieldX + 1) * CELL_SIZE;
-    const cellY = (fieldY  + 1) * CELL_SIZE;
+    const cellX = startX + (fieldX) * CELL_SIZE;
+    const cellY = (fieldY) * CELL_SIZE;
 
     this.ctx.strokeStyle = "white";
     this.ctx.lineWidth = 4;
 
-    if (playerIndex === 0) {
+    if (playerIndex === 1) {
       this.ctx.beginPath();
       this.ctx.arc(
         startX + (fieldX + 1) * CELL_SIZE - CELL_SIZE/2,
@@ -87,7 +87,7 @@ export default class TicTac3dDisplayer {
         angleToRadian(360)
       );
       this.ctx.stroke();
-    } else if (playerIndex === 1) {
+    } else if (playerIndex === 0) {
       this.ctx.beginPath();
       this.ctx.moveTo(cellX, cellY);
       this.ctx.lineTo(cellX + CELL_SIZE, cellY + CELL_SIZE);
@@ -128,7 +128,7 @@ export default class TicTac3dDisplayer {
     await fs.writeFile(fileName, this.canvas.toBuffer());
   }
 
-  public async getBuffer() {
+  public getBuffer() {
     return this.canvas.toBuffer();
   }
 }

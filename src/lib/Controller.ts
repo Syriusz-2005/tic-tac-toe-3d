@@ -38,7 +38,6 @@ export default class TicTac3DController extends Emitter<{
     );
     if (acknowledged) {
       this.setNextCurrentPlayer();
-      this.gameManager.logGrid();
     }
     const win = this.gameManager.checkForWin();
     if (win !== undefined) {
