@@ -3,10 +3,12 @@ import TicTacToe3DGame from "./lib/Game.js";
 
 
 const game = new TicTacToe3DGame();
-const {controller} = game;
+const {controller,displayer} = game;
 
 controller.on('win', (event) => {
   console.log('Player', event.player.playerIndex, 'won!');
+  displayer.update();
+  displayer.toFile('test.png');
 });
 
 //player 0

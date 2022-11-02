@@ -1,7 +1,6 @@
 {
   "name": "tic-tac-toe-3d",
   "version": "1.0.0",
-  "description": "",
   "main": "./out/index.js",
   "type": "module",
   "scripts": {
@@ -13,5 +12,17 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.11.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syriusz-2005/tic-tac-toe-3d.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Syriusz-2005/tic-tac-toe-3d/issues"
+  },
+  "homepage": "https://github.com/Syriusz-2005/tic-tac-toe-3d#readme",
+  "description": "",
+  "dependencies": {
+    "canvas": "^2.10.2"
   }
 }
