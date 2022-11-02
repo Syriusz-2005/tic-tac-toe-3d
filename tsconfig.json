@@ -4,8 +4,9 @@
     "strict": true,
     "moduleResolution": "NodeNext",
     "module": "ESNext",
-    "outDir": "out",
+    "outDir": "lib",
     "skipLibCheck": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "declaration": true
   }
 }

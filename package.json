@@ -1,11 +1,12 @@
 {
   "name": "tic-tac-toe-3d",
-  "version": "1.0.0",
-  "main": "./out/index.js",
+  "version": "1.0.4",
+  "main": "./lib/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon ./out/index.js\""
+    "build": "tsc",
+    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon ./lib/index.js\""
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Syriusz-2005/tic-tac-toe-3d.git"
+    "url": "git+https://github.com/Syriusz-2005/tic-tac-toe-3d.git",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "version" : "git add -A src",
+    "postversion" : "git push && git push --tags"
   },
   "bugs": {
     "url": "https://github.com/Syriusz-2005/tic-tac-toe-3d/issues"
@@ -24,5 +29,6 @@
   "description": "",
   "dependencies": {
     "canvas": "^2.10.2"
-  }
+  },
+  "files": ["lib/**/*"]
 }

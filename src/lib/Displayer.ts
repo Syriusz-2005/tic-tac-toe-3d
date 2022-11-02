@@ -127,4 +127,8 @@ export default class TicTac3dDisplayer {
   public async toFile(fileName: string) {
     await fs.writeFile(fileName, this.canvas.toBuffer());
   }
+
+  public async getBuffer() {
+    return this.canvas.toBuffer();
+  }
 }

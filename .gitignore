@@ -4,3 +4,4 @@ output.png
 test/
 training-data/
 *.jpg
+lib/
