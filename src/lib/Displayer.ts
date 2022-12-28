@@ -1,5 +1,5 @@
 import TicTac3DController from "./Controller.js";
-import Cs from "canvas";
+import Cs from "@napi-rs/canvas";
 import * as fs from "fs/promises";
 
 const angleToRadian = function (angle: number) {
@@ -133,10 +133,10 @@ export default class TicTac3dDisplayer {
   }
 
   public async toFile(fileName: string) {
-    await fs.writeFile(fileName, this.canvas.toBuffer());
+    await fs.writeFile(fileName, this.canvas.toBuffer('image/png'));
   }
 
   public getBuffer() {
-    return this.canvas.toBuffer();
+    return this.canvas.toBuffer('image/png');
   }
 }

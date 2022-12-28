@@ -19,8 +19,8 @@
     "url": "git+https://github.com/Syriusz-2005/tic-tac-toe-3d.git",
     "build": "tsc",
     "prepare": "npm run build",
-    "version" : "git add -A src",
-    "postversion" : "git push && git push --tags"
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "bugs": {
     "url": "https://github.com/Syriusz-2005/tic-tac-toe-3d/issues"
@@ -28,7 +28,9 @@
   "homepage": "https://github.com/Syriusz-2005/tic-tac-toe-3d#readme",
   "description": "",
   "dependencies": {
-    "canvas": "^2.10.2"
+    "@napi-rs/canvas": "^0.1.30"
   },
-  "files": ["lib/**/*"]
+  "files": [
+    "lib/**/*"
+  ]
 }
